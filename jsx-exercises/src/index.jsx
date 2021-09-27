@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 // 1.
 // function MyThing() {
@@ -124,24 +125,24 @@ import ReactDOM from 'react-dom';
 // 	document.querySelector('#root')
 // );
 
-let clicks = 0;
+// let clicks = 0;
 
-function Button() {
-	return <input type="button" value="Click" onClick={() => (clicks += 1)} />;
-}
+// function Button() {
+// 	return <input type="button" value="Click" onClick={() => (clicks += 1)} />;
+// }
 
-function ClickCounter({ clicks }) {
-	return <div>Clicks made: {clicks}</div>;
-}
+// function ClickCounter({ clicks }) {
+// 	return <div>Clicks made: {clicks}</div>;
+// }
 
-function Interface({clicks}) {
-	return (
-		<div>
-			<ClickCounter clicks = {clicks} />
-			<Button />
-		</div>
-	);
-}
+// function Interface({clicks}) {
+// 	return (
+// 		<div>
+// 			<ClickCounter clicks = {clicks} />
+// 			<Button />
+// 		</div>
+// 	);
+// }
 
 // UNCOMMENT TO MAKE IT WORK!
 // setInterval(() => {
@@ -150,3 +151,43 @@ function Interface({clicks}) {
 // }, 500);
 
 // Props
+
+// Prop types
+
+function Post({ author, message, likes }) {
+	return (
+		<div>
+			<div>{author}</div>
+			<div>{message}</div>
+			<div>{likes ? likes : 'No'} likes</div>
+		</div>
+	);
+}
+
+function isItChocolate(props, propName, componentName) {
+	if (props[propName] !== 'Chocolate') {
+		return new Error(
+			'Invalid prop `' +
+				propName +
+				'` supplied to' +
+				' `' +
+				componentName +
+				'`. ' +
+				propName +
+				' must be Chocolate. Something is up...'
+		);
+	}
+}
+
+Post.propTypes = {
+	author: PropTypes.string.isRequired,
+	message: isItChocolate,
+	likes: PropTypes.number,
+};
+
+ReactDOM.render(
+	<Post author="Willy" message="Waffles" />,
+	document.querySelector('#root')
+);
+
+// Prop types
