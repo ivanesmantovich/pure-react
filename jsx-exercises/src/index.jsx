@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import './index.css';
 
 // 1.
 // function MyThing() {
@@ -154,40 +155,225 @@ import PropTypes from 'prop-types';
 
 // Prop types
 
-function Post({ author, message, likes }) {
+// function Post({ author, message, likes }) {
+// 	return (
+// 		<div>
+// 			<div>{author}</div>
+// 			<div>{message}</div>
+// 			<div>{likes ? likes : 'No'} likes</div>
+// 		</div>
+// 	);
+// }
+
+// function isItChocolate(props, propName, componentName) {
+// 	if (props[propName] !== 'Chocolate') {
+// 		return new Error(
+// 			'Invalid prop `' +
+// 				propName +
+// 				'` supplied to' +
+// 				' `' +
+// 				componentName +
+// 				'`. ' +
+// 				propName +
+// 				' must be Chocolate. Something is up...'
+// 		);
+// 	}
+// }
+
+// Post.propTypes = {
+// 	author: PropTypes.string.isRequired,
+// 	message: isItChocolate,
+// 	likes: PropTypes.number,
+// };
+
+// ReactDOM.render(
+// 	<Post author="Willy" message="Waffles" />,
+// 	document.querySelector('#root')
+// );
+
+// Prop types
+
+//Prop Exercises
+
+//Envelope -----------------------------------------------
+
+// function AddressLabel({ person }) {
+// 	return (
+// 		<div className={`addressLabel ${person.role}`}>
+// 			<div>{`${person.fullname.name} ${person.fullname.surname}`}</div>
+// 			<div>{person.streetAddress}</div>
+// 			<div>{person.cityAddress}</div>
+// 		</div>
+// 	);
+// }
+
+// AddressLabel.propTypes = {
+// 	person: PropTypes.shape({
+// 		fullname: PropTypes.shape({
+// 			name: PropTypes.string,
+// 			surname: PropTypes.string,
+// 		}).isRequired,
+// 		streetAddress: PropTypes.string.isRequired,
+// 		cityAddress: PropTypes.string.isRequired,
+// 		role: PropTypes.string.isRequired
+// 	}).isRequired,
+// };
+
+// const Stamp = ({ stampText }) => <div className="stamp"><p>{stampText}</p></div>;
+
+// Stamp.propTypes = {
+// 	stampText: PropTypes.string.isRequired,
+// };
+
+// function Envelope({ toPerson, fromPerson, stampText }) {
+// 	return (
+// 		<div className="envelope">
+// 			<AddressLabel className="reciever" person={toPerson} />
+// 			<AddressLabel className="sender" person={fromPerson} />
+// 			<Stamp className="stamp" stampText={stampText} />
+// 		</div>
+// 	);
+// }
+
+// Envelope.propTypes = {
+// 	toPerson: PropTypes.object.isRequired,
+// 	fromPerson: PropTypes.object.isRequired,
+// 	stampText: PropTypes.string.isRequired,
+// };
+
+// let sender = {
+// 	fullname: {
+// 		name: 'Mr.',
+// 		surname: 'Sender',
+// 	},
+// 	streetAddress: '123 Fake St.',
+// 	cityAddress: 'Boston, MA 02118',
+// 	role: 'sender'
+// };
+
+// let reciever = {
+// 	fullname: {
+// 		name: 'Mr.',
+// 		surname: 'Reciever',
+// 	},
+// 	streetAddress: '123 Fake St.',
+// 	cityAddress: 'San Francisco, CA 94101',
+// 	role: 'reciever'
+// };
+
+// ReactDOM.render(
+// 	<Envelope toPerson={reciever} fromPerson={sender} stampText="Very important" />,
+// 	document.querySelector('#root')
+// );
+
+//Envelope -----------------------------------------------
+
+// Credit Card -----------------------------------------------
+
+// const BankName = ({ name }) => <div className="bankName">{name}</div>;
+// BankName.propTypes = {
+// 	name: PropTypes.string.isRequired,
+// };
+
+// function CardNumber({ number }) {
+// 	number = number.replace(/ /g, '');
+// 	let firstFour = number.slice(0, 4);
+// 	let secondFour = number.slice(4, 8);
+// 	let thirdFour = number.slice(8, 12);
+// 	let fourthFour = number.slice(12, 16);
+// 	return (
+// 		<div className="cardNumber">
+// 			<div className="fullCardNumber">
+// 				<div>{firstFour}</div>
+// 				<div>{secondFour}</div>
+// 				<div>{thirdFour}</div>
+// 				<div>{fourthFour}</div>
+// 			</div>
+// 			<div className="firstFour">{firstFour}</div>
+// 		</div>
+// 	);
+// }
+// CardNumber.propTypes = {
+// 	number: PropTypes.string.isRequired,
+// };
+
+// const ExpirationDate = ({ date }) => (
+// 	<div className="expirationDate">
+// 		<div className="validThru">
+// 			<div>VALID</div>
+// 			<div>THRU</div>
+// 		</div>
+// 		<div className="date">{date}</div>
+// 	</div>
+// );
+// ExpirationDate.propTypes = {
+// 	date: PropTypes.string.isRequired,
+// };
+
+// const Cardholder = ({ name }) => <div className="cardholderName">{name}</div>;
+// Cardholder.propTypes = {
+// 	name: PropTypes.string.isRequired,
+// };
+
+// let myCard = {
+// 	name: 'IVAN ESMANTOVICH',
+// 	expirationDate: '08/19',
+// 	cardNumber: '1111222233334444',
+// 	bankName: 'Life Maintenance, Inc.',
+// };
+
+// function CreditCard({ cardInfo }) {
+// 	return (
+// 		<div className="creditCard">
+// 			<BankName name={cardInfo.bankName} />
+// 			<CardNumber number={cardInfo.cardNumber} />
+// 			<ExpirationDate date={cardInfo.expirationDate} />
+// 			<Cardholder name={cardInfo.name} />
+// 		</div>
+// 	);
+// }
+// CreditCard.propTypes = {
+// 	cardInfo: PropTypes.object.isRequired
+// }
+
+// ReactDOM.render(
+// 	<CreditCard cardInfo={myCard} />,
+// 	document.querySelector('#root')
+// );
+
+// Credit Card -----------------------------------------------
+
+// Poster -----------------------------------------------
+
+const Image = ({ image }) => (
+	<img className="image" src={image} alt="reactLogo" />
+);
+Image.propTypes = {
+	image: PropTypes.string.isRequired,
+};
+
+const Title = ({ title }) => <div className="title">{title}</div>;
+Title.propTypes = {
+	title: PropTypes.string.isRequired,
+};
+
+const Text = ({ text }) => <div className="text">{text}</div>;
+Text.propTypes = {
+	text: PropTypes.string.isRequired,
+};
+
+function Poster({ image, title, text }) {
 	return (
-		<div>
-			<div>{author}</div>
-			<div>{message}</div>
-			<div>{likes ? likes : 'No'} likes</div>
+		<div className="poster">
+			<Image image={image} />
+			<Title title={title} />
+			<Text text={text} />
 		</div>
 	);
 }
 
-function isItChocolate(props, propName, componentName) {
-	if (props[propName] !== 'Chocolate') {
-		return new Error(
-			'Invalid prop `' +
-				propName +
-				'` supplied to' +
-				' `' +
-				componentName +
-				'`. ' +
-				propName +
-				' must be Chocolate. Something is up...'
-		);
-	}
-}
+ReactDOM.render(<Poster image='reactLogo.png' />, document.querySelector('#root'));
 
-Post.propTypes = {
-	author: PropTypes.string.isRequired,
-	message: isItChocolate,
-	likes: PropTypes.number,
-};
+// Poster -----------------------------------------------
 
-ReactDOM.render(
-	<Post author="Willy" message="Waffles" />,
-	document.querySelector('#root')
-);
-
-// Prop types
+//Prop Exercises
