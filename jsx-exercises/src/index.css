@@ -1,5 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans:wght@300&family=Oswald:wght@700&family=Roboto+Slab&display=swap');
+/* Envelope fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap'); */
+/* Envelope fonts */
+/* Credit Card fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300&family=Oswald:wght@700&family=Roboto+Slab&display=swap'); */ 
+/* Credit Card fonts */
+
+/* Demotivator fonts */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+/* Demotivator fonts */
 
 /* Envelope styles */
 
@@ -128,6 +136,35 @@
 
 /* Poster styles */
 
+.poster {
+	display: flex;
+	flex-wrap: wrap;
+    max-width: 600px;
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+    font-family: 'PT Serif', serif;
+}
 
+.poster * {
+	flex: 1 1 350px;
+}
+
+.image {
+    max-width: 500px;
+    border: 3px solid cornflowerblue;
+}
+
+.title {
+    font-weight: bold;
+    color: cornflowerblue;
+    font-size: 70px;
+}
+
+.text {
+    color: aliceblue;
+    font-size: 25px;
+}
 
 /* Poster styles */

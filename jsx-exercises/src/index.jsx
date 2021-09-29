@@ -372,7 +372,7 @@ function Poster({ image, title, text }) {
 	);
 }
 
-ReactDOM.render(<Poster image='reactLogo.png' />, document.querySelector('#root'));
+ReactDOM.render(<Poster image='reactLogo.png' title='REACT' text='Thats it. Thats the message. Learn it already.'  />, document.querySelector('#root'));
 
 // Poster -----------------------------------------------
 
