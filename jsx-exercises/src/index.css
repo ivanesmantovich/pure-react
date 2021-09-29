@@ -6,8 +6,13 @@
 /* Credit Card fonts */
 
 /* Demotivator fonts */
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap'); */
 /* Demotivator fonts */
+
+/* EMail fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* EMail fonts */
 
 /* Envelope styles */
 
@@ -136,7 +141,7 @@
 
 /* Poster styles */
 
-.poster {
+/* .poster {
 	display: flex;
 	flex-wrap: wrap;
     max-width: 600px;
@@ -165,6 +170,38 @@
 .text {
     color: aliceblue;
     font-size: 25px;
-}
+} */
 
 /* Poster styles */
+
+/* EMail line styles */
+
+.singleLine {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.subject {
+    justify-self: center;
+}
+
+.date {
+    justify-self: end;
+}
+
+.message {
+    grid-column: 1 / 4;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.checkbox {
+    position: absolute;
+    align-self: center;
+    left: 10px;
+}
+
+/* EMail line styles */

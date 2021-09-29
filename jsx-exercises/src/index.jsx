@@ -345,35 +345,94 @@ import './index.css';
 
 // Poster -----------------------------------------------
 
-const Image = ({ image }) => (
-	<img className="image" src={image} alt="reactLogo" />
-);
-Image.propTypes = {
-	image: PropTypes.string.isRequired,
+// const Image = ({ image }) => (
+// 	<img className="image" src={image} alt="reactLogo" />
+// );
+// Image.propTypes = {
+// 	image: PropTypes.string.isRequired,
+// };
+
+// const Title = ({ title }) => <div className="title">{title}</div>;
+// Title.propTypes = {
+// 	title: PropTypes.string.isRequired,
+// };
+
+// const Text = ({ text }) => <div className="text">{text}</div>;
+// Text.propTypes = {
+// 	text: PropTypes.string.isRequired,
+// };
+
+// function Poster({ image, title, text }) {
+// 	return (
+// 		<div className="poster">
+// 			<Image image={image} />
+// 			<Title title={title} />
+// 			<Text text={text} />
+// 		</div>
+// 	);
+// }
+// Poster.propTypes = {
+// 	image: PropTypes.string.isRequired,
+// 	title: PropTypes.string.isRequired,
+// 	text: PropTypes.string.isRequired
+// }
+
+// ReactDOM.render(<Poster image='reactLogo.png' title='REACT' text='Thats it. Thats the message. Learn it already.'  />, document.querySelector('#root'));
+
+// Poster -----------------------------------------------
+
+// EMail line -----------------------------------------------
+
+const Sender = ({ sender }) => <div className="sender">{sender}</div>;
+Sender.propTypes = {
+	sender: PropTypes.string.isRequired,
 };
 
-const Title = ({ title }) => <div className="title">{title}</div>;
-Title.propTypes = {
-	title: PropTypes.string.isRequired,
+const Subject = ({ subject }) => <div className="subject">{subject}</div>;
+Subject.propTypes = {
+	subject: PropTypes.string.isRequired,
 };
 
-const Text = ({ text }) => <div className="text">{text}</div>;
-Text.propTypes = {
-	text: PropTypes.string.isRequired,
+const Date = ({ date }) => <div className="date">{date}</div>;
+Date.propTypes = {
+	date: PropTypes.string.isRequired,
 };
 
-function Poster({ image, title, text }) {
+const Message = ({ message }) => <div className="message">{message}</div>;
+Message.propTypes = {
+	message: PropTypes.string.isRequired,
+};
+
+const Checkbox = () => <input className="checkbox" type="checkbox" />;
+
+let myEmail = {
+	sender: 'Life Maintenance',
+	subject: 'Neverending Waste',
+	date: 'Mar 28',
+	message:
+		'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quia illum, vitae illo excepturi laboriosam aspernatur fugit, a minima unde',
+};
+
+function SingleLine({ email }) {
 	return (
-		<div className="poster">
-			<Image image={image} />
-			<Title title={title} />
-			<Text text={text} />
+		<div className="singleLine">
+			<Sender sender={email.sender} />
+			<Subject subject={email.subject} />
+			<Date date={email.date} />
+			<Checkbox />
+			<Message message={email.message} />
 		</div>
 	);
 }
+SingleLine.propTypes = {
+	email: PropTypes.object.isRequired
+}
 
-ReactDOM.render(<Poster image='reactLogo.png' title='REACT' text='Thats it. Thats the message. Learn it already.'  />, document.querySelector('#root'));
+ReactDOM.render(
+	<SingleLine email={myEmail} />,
+	document.querySelector('#root')
+);
 
-// Poster -----------------------------------------------
+// EMail line -----------------------------------------------
 
 //Prop Exercises
